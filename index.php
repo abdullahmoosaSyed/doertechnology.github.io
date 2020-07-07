@@ -1,4 +1,4 @@
-
+﻿
 <?php
   use PHPMailer\PHPMailer\PHPMailer;
   use PHPMailer\PHPMailer\Exception;
@@ -11,7 +11,7 @@
   require 'vendor/autoload.php';
   // Create object of PHPMailer class
   $mail = new PHPMailer(true);
-
+   
   $output = '';
 
   if (isset($_POST['submit'])) {
@@ -36,12 +36,12 @@
       $mail->addAddress('farihachy009@gmail.com');
 
       $mail->isHTML(true);
-      $mail->Subject = 'Form Submission';
-      $mail->Body = "<h3>Name : $name <br>Email : $email <br>Message : $message</h3>";
+      $mail->Subject = 'Form Submission of DOER TECH';
+      $mail->Body = "<p>Name : $name <br>Email : $email <br>Message : $message<p>";
 
       $mail->send();
       $output = '<div class="alert alert-success">
-                  <h5>Thankyou! for contacting us, We\'ll get back to you soon!</h5>
+                  <p>Thankyou! for contacting us, We\'ll get back to you soon!<p>
                 </div>';
     } catch (Exception $e) {
       $output = '<div class="alert alert-danger">
@@ -51,23 +51,6 @@
   }
 
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -214,7 +197,7 @@
   <div class="flex-container">
     <div>
       <div class="icon-container">
-        <img src="img/plane.png" alt="" style="height: 50px; width: 50px;">
+        <img src="img/solar-energy.png" alt="" style="height: 50px; width: 50px;">
       </div>
      <p>Electrical Project Take-Off</p> 
     </div>
@@ -358,8 +341,14 @@
     <div class="contact-heading">
         <h1>Contact</h1>
         <h6>Lets Work Together</h6>
+        <br>
+        <?= $output; ?>
+        <br>
+        <br>
     </div>
-   
+
+                
+              
     <div class="main-contact">
         <form action="" method="POST">
            
@@ -369,9 +358,9 @@
                 <input type="email" id="email" name="email" placeholder="Enter Your Email.." required>   
           
             <label for="subject">Subject</label>
-            <textarea name="subject" id="subject" cols="10" name="message"
+            <textarea  id="message" cols="10" name="message"
              rows="10"></textarea>
-            <input type="submit" value="submit">
+            <input type="submit"  name="submit">
         </form>
     </div>
 </section> 
